@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for proper document encoding and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Car Customization Web Application - Customize your dream car">
+    <title>Car Customization Platform</title>
+    
+    <!-- Link to external CSS file for styling -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Three.js library for 3D rendering -->
+    <!-- Three.js is a JavaScript 3D library used to create and display 3D graphics in the browser -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <!-- Main container to center and constrain content -->
+    <div class="container">
+        
+        <!-- Header section with project title -->
+        <header>
+            <div class="header-content">
+                <div class="header-title">
+                    <h1>Car Customization Platform</h1>
+                    <p class="subtitle">Design Your Dream Vehicle</p>
+                </div>
+                <div class="header-auth">
+                    <span id="userGreeting" class="user-greeting" style="display: none;"></span>
+                    <a href="login.html" class="auth-link" id="loginLink">Login</a>
+                    <a href="signup.html" class="auth-link auth-link-primary" id="signupLink">Sign Up</a>
+                    <a href="#" class="auth-link" id="logoutLink" style="display: none;" onclick="logout(); return false;">Logout</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main customization form section -->
+        <main>
+            <!-- Car model selection section -->
+            <section class="customization-section">
+                <h2>Step 1: Select Car Model</h2>
+                <div class="form-group">
+                    <label for="carModel">Choose Your Car Model:</label>
+                    <!-- Dropdown to select car model and variant -->
+                    <select id="carModel" name="carModel" required>
+                        <option value="">-- Select a Model --</option>
+                        <option value="sedan-basic" data-base-price="25000">Sedan - Basic</option>
+                        <option value="sedan-premium" data-base-price="35000">Sedan - Premium</option>
+                        <option value="suv-basic" data-base-price="30000">SUV - Basic</option>
+                        <option value="suv-premium" data-base-price="45000">SUV - Premium</option>
+                        <option value="sports-basic" data-base-price="50000">Sports Car - Basic</option>
+                        <option value="sports-premium" data-base-price="70000">Sports Car - Premium</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Color selection section -->
+            <section class="customization-section">
+                <h2>Step 2: Choose Color</h2>
+                <div class="form-group">
+                    <label>Select Exterior Color:</label>
+                    <div class="radio-group">
+                        <!-- Radio buttons for color selection (only one can be selected) -->
+                        <label class="radio-option">
+                            <input type="radio" name="color" value="white" data-price="0" checked>
+                            <span class="color-swatch white"></span>
+                            White (Standard)
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="color" value="black" data-price="500">
+                            <span class="color-swatch black"></span>
+                            Black (+$500)
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="color" value="red" data-price="600">
+                            <span class="color-swatch red"></span>
+                            Red (+$600)
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="color" value="blue" data-price="550">
+                            <span class="color-swatch blue"></span>
+                            Blue (+$550)
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="color" value="silver" data-price="400">
+                            <span class="color-swatch silver"></span>
+                            Silver (+$400)
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- 3D Car Preview Container -->
+                <!-- This div contains the 3D interactive car viewer with rotation and customization -->
+                <div class="car-preview">
+                    <!-- Canvas element where Three.js will render the 3D car model -->
+                    <canvas id="car3DCanvas"></canvas>
+                    
+                    <!-- Rotation hint text -->
+                    <div class="rotation-hint">
+                        <span>🖱️ Drag to rotate • 👆 Touch to rotate</span>
+                    </div>
+                    
+                    <!-- View mode toggle buttons -->
+                    <div class="view-controls">
+                        <button class="view-btn active" data-view="exterior" id="exteriorViewBtn">Exterior</button>
+                        <button class="view-btn" data-view="interior" id="interiorViewBtn">Interior</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Wheel selection section -->
+            <section class="customization-section">
+                <h2>Step 3: Select Wheels</h2>
+                <div class="form-group">
+                    <label for="wheels">Choose Wheel Style:</label>
+                    <!-- Dropdown for wheel selection -->
+                    <select id="wheels" name="wheels">
+                        <option value="standard" data-price="0">Standard Wheels (Included)</option>
+                        <option value="alloy" data-price="800">Alloy Wheels (+$800)</option>
+                        <option value="chrome" data-price="1200">Chrome Wheels (+$1,200)</option>
+                        <option value="sport" data-price="1500">Sport Wheels (+$1,500)</option>
+                        <option value="luxury" data-price="2000">Luxury Wheels (+$2,000)</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Interior selection section -->
+            <section class="customization-section">
+                <h2>Step 4: Choose Interior</h2>
+                <div class="form-group">
+                    <label for="interior">Select Interior Style:</label>
+                    <!-- Dropdown for interior selection -->
+                    <select id="interior" name="interior">
+                        <option value="fabric" data-price="0">Fabric Interior (Standard)</option>
+                        <option value="leather" data-price="1500">Leather Interior (+$1,500)</option>
+                        <option value="premium-leather" data-price="3000">Premium Leather (+$3,000)</option>
+                        <option value="sport" data-price="2000">Sport Interior (+$2,000)</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Accessories selection section -->
+            <section class="customization-section">
+                <h2>Step 5: Add Accessories</h2>
+                <div class="form-group">
+                    <label>Select Accessories (Multiple selections allowed):</label>
+                    <div class="checkbox-group">
+                        <!-- Checkboxes allow multiple selections -->
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="accessories" value="sunroof" data-price="1200">
+                            Sunroof (+$1,200)
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="accessories" value="navigation" data-price="800">
+                            Navigation System (+$800)
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="accessories" value="premium-sound" data-price="1000">
+                            Premium Sound System (+$1,000)
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="accessories" value="parking-sensors" data-price="600">
+                            Parking Sensors (+$600)
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="accessories" value="heated-seats" data-price="900">
+                            Heated Seats (+$900)
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="accessories" value="led-lights" data-price="700">
+                            LED Headlights (+$700)
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Price display section -->
+            <section class="price-section">
+                <h2>Total Price</h2>
+                <!-- Price breakdown display -->
+                <div class="price-breakdown">
+                    <div class="price-item">
+                        <span>Base Price:</span>
+                        <span id="basePrice">$0</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Color:</span>
+                        <span id="colorPrice">$0</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Wheels:</span>
+                        <span id="wheelsPrice">$0</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Interior:</span>
+                        <span id="interiorPrice">$0</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Accessories:</span>
+                        <span id="accessoriesPrice">$0</span>
+                    </div>
+                    <div class="price-item total">
+                        <span>Total:</span>
+                        <span id="totalPrice">$0</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Submit button to send customization data to server -->
+            <div class="button-container">
+                <button type="button" id="customizeBtn" class="btn-primary">Customize Now</button>
+            </div>
+        </main>
+
+        <!-- Footer section -->
+        <footer>
+            <p>&copy; 2024 Car Customization Platform. Academic Project.</p>
+        </footer>
+    </div>
+
+    <!-- Link to 3D car viewer JavaScript -->
+    <script src="car3d-viewer.js"></script>
+    
+    <!-- Link to authentication JavaScript -->
+    <script src="auth.js"></script>
+    
+    <!-- Link to external JavaScript file for functionality -->
+    <script src="script.js"></script>
+    
+    <!-- Initialize auth status on page load -->
+    <script>
+        // Check authentication status and update header
+        document.addEventListener('DOMContentLoaded', function() {
+            const user = getCurrentUser();
+            const userGreeting = document.getElementById('userGreeting');
+            const loginLink = document.getElementById('loginLink');
+            const signupLink = document.getElementById('signupLink');
+            const logoutLink = document.getElementById('logoutLink');
+            
+            if (user && isLoggedIn()) {
+                // User is logged in
+                userGreeting.textContent = `Hello, ${user.fullName}`;
+                userGreeting.style.display = 'inline';
+                loginLink.style.display = 'none';
+                signupLink.style.display = 'none';
+                logoutLink.style.display = 'inline';
+            } else {
+                // User is not logged in
+                userGreeting.style.display = 'none';
+                loginLink.style.display = 'inline';
+                signupLink.style.display = 'inline';
+                logoutLink.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+You are a senior full-stack web developer and computer science professor.
+I am a BSc Computer Science final-year student.
+
+My project title is:
+"Car Customization Webpage – A Web-Based Vehicle Customization Platform"
+
+Project requirements:
+- Frontend: HTML, CSS, JavaScript
+- Backend: Node.js with Express.js
+- Database: MongoDB (optional / future scope)
+- Features:
+  - Select car model and variant
+  - Choose color, wheels, interior, accessories
+  - Real-time price calculation
+  - Send customization data to server
+  - Final summary page
+
+Generate clean, beginner-friendly, well-commented code.
+Follow academic project standards.
+Explain logic in simple words.
+
+frontend html, css,js
+Create a professional HTML homepage for a Car Customization Web Application.
+
+Requirements:
+- Header with project title
+- Car model selection dropdown
+- Color options (radio buttons)
+- Wheel options
+- Interior options
+- Accessories (checkboxes)
+- Price display section
+- "Customize Now" button
+
+Use semantic HTML.
+Add comments for explanation.
+Keep layout beginner-friendly.
+
+styling css
+Create modern CSS styling for the car customization webpage.
+
+Requirements:
+- Clean layout
+- Centered content
+- Card-style design
+- Hover effects on buttons
+- Responsive design (mobile + desktop)
+
+Use simple CSS (no frameworks).
+Add comments explaining each section.
+
+java script
+Write JavaScript code for a car customization system.
+
+Features:
+- Update car image based on selected color
+- Calculate total price dynamically
+- Add extra cost for wheels, interior, accessories
+- Display real-time price update
+- Show final summary on button click
+
+Explain logic in comments.
+Keep code beginner-friendly.

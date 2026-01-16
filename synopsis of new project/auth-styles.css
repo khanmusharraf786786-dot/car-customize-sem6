@@ -1,0 +1,314 @@
+/* ============================================
+   Authentication Pages - CSS Stylesheet
+   Sign Up and Login Pages Styling
+   ============================================ */
+
+/* Auth container - full page background */
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+}
+
+/* Auth card - main container for form */
+.auth-card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    animation: slideUp 0.5s ease-out;
+}
+
+/* Slide up animation for card appearance */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Auth header styling */
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-header h1 {
+    color: #667eea;
+    font-size: 2em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.auth-subtitle {
+    color: #666;
+    font-size: 1em;
+    margin-top: 5px;
+}
+
+/* Auth form styling */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Form group (input field container) */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #555;
+    font-size: 0.95em;
+}
+
+.form-group .optional {
+    color: #999;
+    font-weight: normal;
+    font-size: 0.85em;
+}
+
+/* Input field styling */
+.form-group input {
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    background-color: #fafafa;
+}
+
+/* Input focus state */
+.form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Input error state */
+.form-group input.error {
+    border-color: #dc3545;
+    background-color: #fff5f5;
+}
+
+/* Input success state */
+.form-group input.success {
+    border-color: #28a745;
+    background-color: #f0fff4;
+}
+
+/* Error message styling */
+.error-message {
+    color: #dc3545;
+    font-size: 0.85em;
+    min-height: 20px;
+    display: block;
+}
+
+/* Form hint text */
+.form-hint {
+    color: #666;
+    font-size: 0.85em;
+    margin-top: -5px;
+}
+
+/* Form options (remember me, forgot password) */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -10px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #667eea;
+}
+
+.forgot-password {
+    color: #667eea;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+/* Auth button styling */
+.btn-auth {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    margin-top: 10px;
+}
+
+.btn-auth:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.btn-auth:active {
+    transform: translateY(0);
+}
+
+.btn-auth:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Loading message */
+.loading-message {
+    text-align: center;
+    color: #667eea;
+    font-size: 0.95em;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Auth message (success/error) */
+.auth-message {
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-size: 0.9em;
+    text-align: center;
+    display: none;
+}
+
+.auth-message.show {
+    display: block;
+}
+
+.auth-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.auth-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.auth-message.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+/* Auth footer (links at bottom) */
+.auth-footer {
+    margin-top: 30px;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.auth-footer p {
+    margin: 10px 0;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.auth-footer a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.auth-footer a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+/* ============================================
+   Responsive Design - Mobile Devices
+   ============================================ */
+
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 15px;
+    }
+
+    .auth-card {
+        padding: 30px 25px;
+        max-width: 100%;
+    }
+
+    .auth-header h1 {
+        font-size: 1.7em;
+    }
+
+    .auth-subtitle {
+        font-size: 0.9em;
+    }
+
+    .form-group input {
+        padding: 10px 12px;
+        font-size: 0.95em;
+    }
+
+    .btn-auth {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 25px 20px;
+    }
+
+    .auth-header h1 {
+        font-size: 1.5em;
+    }
+
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .forgot-password {
+        align-self: flex-end;
+    }
+}

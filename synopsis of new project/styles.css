@@ -1,0 +1,562 @@
+/* ============================================
+   Car Customization Platform - CSS Stylesheet
+   ============================================ */
+
+/* Reset default browser styles for consistent appearance */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling - sets background and font for entire page */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+/* Main container - centers content and sets max width */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* Header section styling */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px 30px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.header-title {
+    text-align: center;
+    flex: 1;
+    min-width: 250px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+/* Header authentication links */
+.header-auth {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.user-greeting {
+    color: white;
+    font-size: 0.95em;
+    margin-right: 10px;
+}
+
+.auth-link {
+    color: white;
+    text-decoration: none;
+    padding: 8px 20px;
+    border: 2px solid white;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 0.95em;
+}
+
+.auth-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.auth-link-primary {
+    background-color: white;
+    color: #667eea;
+    border-color: white;
+}
+
+.auth-link-primary:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #764ba2;
+}
+
+/* Main content area */
+main {
+    padding: 30px;
+}
+
+/* Customization section - card-style design */
+.customization-section {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 25px;
+    border: 1px solid #e0e0e0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect on sections */
+.customization-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.customization-section h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 10px;
+}
+
+/* Form group styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #555;
+    font-size: 1.1em;
+}
+
+/* Dropdown/select styling */
+select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+/* Hover and focus effects on select */
+select:hover {
+    border-color: #667eea;
+}
+
+select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Radio button group container */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Individual radio option styling */
+.radio-option {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background-color: white;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect on radio options */
+.radio-option:hover {
+    border-color: #667eea;
+    background-color: #f0f4ff;
+}
+
+/* When radio button is selected */
+.radio-option input[type="radio"]:checked + .color-swatch {
+    border: 3px solid #667eea;
+}
+
+.radio-option input[type="radio"]:checked ~ span:not(.color-swatch) {
+    font-weight: 600;
+    color: #667eea;
+}
+
+/* Hide default radio button appearance */
+.radio-option input[type="radio"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* Color swatch - visual representation of color */
+.color-swatch {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 2px solid #ddd;
+    display: inline-block;
+}
+
+/* Specific color swatches */
+.color-swatch.white {
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+}
+
+.color-swatch.black {
+    background-color: #000000;
+}
+
+.color-swatch.red {
+    background-color: #dc3545;
+}
+
+.color-swatch.blue {
+    background-color: #007bff;
+}
+
+.color-swatch.silver {
+    background-color: #c0c0c0;
+}
+
+/* 3D Car preview container */
+.car-preview {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 3D Canvas styling */
+#car3DCanvas {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: block;
+    cursor: grab;
+    touch-action: none; /* Prevent default touch behaviors */
+}
+
+#car3DCanvas:active {
+    cursor: grabbing;
+}
+
+/* Rotation hint text */
+.rotation-hint {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #666;
+    font-style: italic;
+}
+
+/* View controls (Exterior/Interior toggle) */
+.view-controls {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.view-btn {
+    padding: 8px 20px;
+    border: 2px solid #667eea;
+    background-color: white;
+    color: #667eea;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.view-btn:hover {
+    background-color: #f0f4ff;
+    transform: translateY(-2px);
+}
+
+.view-btn.active {
+    background-color: #667eea;
+    color: white;
+}
+
+/* Legacy image support (if 3D viewer fails) */
+.car-preview img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Checkbox group container */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Individual checkbox option styling */
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background-color: white;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect on checkbox options */
+.checkbox-option:hover {
+    border-color: #667eea;
+    background-color: #f0f4ff;
+}
+
+/* When checkbox is checked */
+.checkbox-option input[type="checkbox"]:checked ~ span {
+    font-weight: 600;
+    color: #667eea;
+}
+
+.checkbox-option input[type="checkbox"] {
+    margin-right: 10px;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+}
+
+/* Price section styling */
+.price-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.price-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+/* Price breakdown container */
+.price-breakdown {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+/* Individual price item */
+.price-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 1.1em;
+}
+
+/* Total price item - highlighted */
+.price-item.total {
+    border-bottom: none;
+    border-top: 2px solid white;
+    margin-top: 10px;
+    padding-top: 15px;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+/* Button container */
+.button-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Primary button styling */
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2em;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Hover effect on button */
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+/* Active/pressed state */
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Disabled button state */
+.btn-primary:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Footer styling */
+footer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* ============================================
+   Responsive Design - Mobile Devices
+   ============================================ */
+
+/* Media query for tablets and smaller screens */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    header {
+        padding: 30px 20px;
+    }
+
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-title {
+        width: 100%;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    .header-auth {
+        width: 100%;
+        justify-content: center;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    .customization-section {
+        padding: 20px;
+    }
+
+    .radio-group,
+    .checkbox-group {
+        gap: 10px;
+    }
+
+    .color-swatch {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* Media query for mobile phones */
+@media (max-width: 480px) {
+    header {
+        padding: 30px 20px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    .subtitle {
+        font-size: 0.9em;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    .customization-section {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .customization-section h2 {
+        font-size: 1.2em;
+    }
+
+    .btn-primary {
+        padding: 12px 30px;
+        font-size: 1em;
+        width: 100%;
+    }
+
+    .price-item {
+        font-size: 1em;
+    }
+
+    .price-item.total {
+        font-size: 1.3em;
+    }
+    
+    /* 3D viewer responsive adjustments for mobile */
+    .car-preview {
+        min-height: 300px;
+        padding: 15px;
+    }
+    
+    #car3DCanvas {
+        height: 300px;
+        max-width: 100%;
+    }
+    
+    .rotation-hint {
+        font-size: 0.8em;
+        margin-top: 8px;
+    }
+    
+    .view-controls {
+        margin-top: 10px;
+    }
+    
+    .view-btn {
+        padding: 6px 15px;
+        font-size: 0.85em;
+    }
+}

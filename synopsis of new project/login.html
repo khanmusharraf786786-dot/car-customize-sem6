@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for proper document encoding and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login to Car Customization Platform">
+    <title>Login - Car Customization Platform</title>
+    
+    <!-- Link to external CSS file for styling -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="auth-styles.css">
+</head>
+<body>
+    <!-- Auth page container -->
+    <div class="auth-container">
+        <!-- Auth card -->
+        <div class="auth-card">
+            <!-- Header -->
+            <header class="auth-header">
+                <h1>Welcome Back</h1>
+                <p class="auth-subtitle">Sign in to your account</p>
+            </header>
+
+            <!-- Login form -->
+            <form id="loginForm" class="auth-form">
+                <!-- Email field -->
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input 
+                        type="email" 
+                        id="loginEmail" 
+                        name="email" 
+                        placeholder="Enter your email"
+                        required
+                        autocomplete="email"
+                    >
+                    <span class="error-message" id="loginEmailError"></span>
+                </div>
+
+                <!-- Password field -->
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input 
+                        type="password" 
+                        id="loginPassword" 
+                        name="password" 
+                        placeholder="Enter your password"
+                        required
+                        autocomplete="current-password"
+                    >
+                    <span class="error-message" id="loginPasswordError"></span>
+                </div>
+
+                <!-- Remember me and forgot password -->
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn-auth" id="loginBtn">
+                    Sign In
+                </button>
+
+                <!-- Loading state -->
+                <div class="loading-message" id="loadingMessage" style="display: none;">
+                    Signing you in...
+                </div>
+
+                <!-- Success/Error messages -->
+                <div class="auth-message" id="authMessage"></div>
+            </form>
+
+            <!-- Footer links -->
+            <div class="auth-footer">
+                <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+                <p><a href="index.html">← Back to Home</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to authentication JavaScript -->
+    <script src="auth.js"></script>
+</body>
+</html>
